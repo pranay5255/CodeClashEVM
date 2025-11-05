@@ -5,15 +5,8 @@
 </p>
 
 <div align="center">
-<a href="https://www.python.org/">
-  <img alt="Build" src="https://img.shields.io/badge/Python-3.10+-1f425f.svg?color=purple">
-</a>
-<a href="https://copyright.princeton.edu/policy">
-  <img alt="License" src="https://img.shields.io/badge/License-MIT-blue">
-</a>
-<a href="https://arxiv.org/abs/2511.00839">
-  <img src="https://img.shields.io/badge/arXiv-2511.00839-b31b1b.svg">
-</a>
+<a href="https://www.python.org/"><img alt="Build" src="https://img.shields.io/badge/Python-3.10+-1f425f.svg?color=purple"></a>
+<a href="https://copyright.princeton.edu/policy"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue"></a> <a href="https://arxiv.org/abs/2511.00839"><img src="https://img.shields.io/badge/arXiv-2511.00839-b31b1b.svg"></a>
 </div>
 
 <hr />
