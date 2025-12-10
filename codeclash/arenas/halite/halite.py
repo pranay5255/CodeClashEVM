@@ -16,8 +16,9 @@ HALITE_HIDDEN_EXEC = ".codeclash_exec"
 
 # Command to be run in each agent's `submission/` folder to compile agent
 MAP_FILE_TYPE_TO_COMPILE = {
-    ".cpp": "g++ -std=c++11 {path}.cpp -o {name}.o",
-    ".c": "gcc {path}.c -o {name}.o",
+    ".cpp": "g++ -std=c++11 {name}.cpp -o {name}.o",
+    ".c": "gcc {name}.c -o {name}.o",
+    ".hs": "ghc --make {name}.hs -O -v0 -rtsopts -outputdir dist",
     ".ml": "ocamlbuild -lib unix {name}.native",
     ".rs": "cargo build",
 }
@@ -26,6 +27,7 @@ MAP_FILE_TYPE_TO_COMPILE = {
 MAP_FILE_TYPE_TO_RUN = {
     ".c": "{path}/{name}.o",
     ".cpp": "{path}/{name}.o",
+    ".hs": "{path}/{name}",
     ".js": "node {path}/{name}.js",
     ".ml": "{path}/{name}.native",
     ".py": "python {path}/{name}.py",
@@ -145,7 +147,7 @@ You may include additional files as needed, but please ensure:
 
         # Check that the submission compiles if necessary
         if main_ext in MAP_FILE_TYPE_TO_COMPILE:
-            compile_cmd = MAP_FILE_TYPE_TO_COMPILE[main_ext].format(path="main", name="main")
+            compile_cmd = MAP_FILE_TYPE_TO_COMPILE[main_ext].format(name="main")
             try:
                 compile_response = agent.environment.execute(compile_cmd, timeout=15, cwd=sub_path)
             except subprocess.TimeoutExpired:
